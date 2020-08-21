@@ -16,15 +16,15 @@ class NotesContainer extends Component {
 
     // inStateNotes = (notes) => this.setState({ notes: notes})
     
-    renderNotes = () => this.state.notes.map(note => <Note key={note.id} note={note} />)
+    renderNotes = () => this.props.notes.map(note => <Note key={note.id} note={note} />)
     
     
     
     render() {
-        console.log(this.props);
+ 
         return (
             <ul>
-                {/* {this.renderNotes()} */}
+                {this.renderNotes()}
             </ul>
         )
     }

@@ -6,7 +6,19 @@ import * as serviceWorker from './serviceWorker';
 import {createStore} from 'redux'
 import {Provider} from 'react-redux'
 
-const rootReducer = () => { return {notes: []}}
+const rootReducer = (currentState={notes: []}, action) => {
+  if (action.type === "add note") {
+    return { 
+      ...currentState,
+      notes: [
+        ...currentState.notes, 
+        action.payload
+      ]
+    }
+  } else {
+    return currentState
+  }
+}
 
 const store = createStore(rootReducer) 
  
